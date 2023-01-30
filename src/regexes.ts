@@ -65,7 +65,7 @@ export const regexEntries: RegexEntry[] = [
         author_website_url: "https://discord.gg/4CSc9E5uQy",
         description: "Detect Zalgo",
         long_description: `3 = less false positives, more false negatives (detects some emojis)\n1 - more false postives, less false negatives (detects more emojis, accents and)`,
-        limitations: "",
+        limitations: "Some emojis may be blocked",
         regex: "\p{M}{3,}"
     },
     {
