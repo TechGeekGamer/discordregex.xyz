@@ -30,7 +30,7 @@ export default function RegexCard({ entry }: { entry: RegexEntry }) {
     setSensitiveVisible(true);
   }
   return (
-    <div className="card overflow-x-scroll" id={id}>
+    <div className="card overflow-x-scroll" id="regex-card" data-id={id}>
       <h2 className="text-2xl font-bold mb-2 hover:underline hover:cursor-pointer" onClick={() => copyURL()}>{entry.description}</h2>
       {entry.author_website_url ? <a className="text-lg mb-2 link" href={entry.author_website_url} target="_blank" rel="noreferrer">By: {entry.author_discord_tag}</a> : <h4 className="text-lg mb-2">By: {entry.author_discord_tag}</h4>}
       <p className="whitespace-pre-wrap">

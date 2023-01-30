@@ -7,10 +7,12 @@ export default function Home() {
   const [search, setSearch] = useState("");
   function scrollToCard() {
     const id = window.location.hash.split("#")[1];
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const choices = document.querySelectorAll(`[data-id=${id}]`);
+    choices[0]?.scrollIntoView({ behavior: "smooth" });
   };
   useEffect(() => {
     window.addEventListener("hashchange", scrollToCard);
+    scrollToCard();
     return () => {
       window.removeEventListener("hashchange", scrollToCard);
     }
