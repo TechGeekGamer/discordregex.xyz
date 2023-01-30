@@ -1,10 +1,15 @@
 import RegexCard from "@/components/RegexCard";
+import RegexEntry from "@/RegexEntry";
 import { regexEntries } from "@/regexes";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [search, setSearch] = useState("");
+
+  function searchFunction(entry: RegexEntry) {
+    return entry.description.toLowerCase().includes(search.toLowerCase()) || entry.regex.toLowerCase().includes(search.toLowerCase());
+  }
   function scrollToCard() {
     const id = window.location.hash.split("#")[1];
     const choices = document.querySelectorAll(`[data-id=${id}]`);
@@ -41,10 +46,10 @@ export default function Home() {
         />
         <div className="flex flex-col space-y-2">
           {regexEntries
-            .filter(entry => search ? (entry.description.toLowerCase().includes(search.toLowerCase()) || entry.regex.toLowerCase().includes(search.toLowerCase())) : true)
+            .filter(entry => search ? searchFunction(entry) : true)
             .map((entry) => <RegexCard entry={entry} key={entry.description} />)}
           {regexEntries
-            .filter(entry => search ? (entry.description.toLowerCase().includes(search.toLowerCase()) || entry.regex.toLowerCase().includes(search.toLowerCase())) : true).length === 0
+            .filter(entry => search ? searchFunction(entry) : true).length === 0
             &&
             (<div className="card">
               <h2 className="text-2xl font-bold mb-2">No Results Found</h2>
