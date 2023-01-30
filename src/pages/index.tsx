@@ -48,7 +48,7 @@ export default function Home() {
               <h2 className="text-2xl font-bold mb-2">No Results Found</h2>
               <h4 className="text-lg mb-2">Few things you can do...</h4>
               <p className="whitespace-pre-wrap">
-                - Generate your own Regex with TreeBen77#9066&apos;s <a className="link" href="https://treeben77.github.io/automod-regex-generator/" target="_blank" rel="noreferrer">AutoMod Regex Generator</a> (and <a className="link" href="https://daniel.is-coding-on-the.net" target="_blank" rel="noreferrer">PR it on GitHub</a> after? 👀)
+                - Generate your own Regex with TreeBen77#9066&apos;s <a className="link" href="https://treeben77.github.io/automod-regex-generator/" target="_blank" rel="noreferrer">AutoMod Regex Generator</a> (and <a className="link" href="https://github.com/TechGeekGamer/discordregex.xyz" target="_blank" rel="noreferrer">PR it on GitHub</a> after? 👀)
                 <br />
                 - <a className="link" href="https://github.com/TechGeekGamer/discordregex.xyz" target="_blank" rel="noreferrer">Contribute to this site on GitHub</a>
                 <br />
