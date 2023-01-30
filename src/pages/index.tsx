@@ -7,12 +7,31 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [search, setSearch] = useState("");
 
-  function searchFunction(entry: RegexEntry) {
-    return entry.description.toLowerCase().includes(search.toLowerCase()) || entry.regex.toLowerCase().includes(search.toLowerCase());
+  function searchEntries(searchTerm: string, ignoreExactMatches: boolean = false): RegexEntry[] {
+    const searchTermElements = searchTerm.trim().split(" ")
+    let results: Record<string, number> = {};
+
+    const getResultPoints = (result: string) => results[result];
+    for (const ste of searchTermElements) {
+      for (const entry of regexEntries) {
+        if (searchTerm.toLowerCase() === entry.description.toLowerCase() && !ignoreExactMatches) {
+          return [entry];
+        }
+        if (entry.description.toLowerCase().includes(ste.toLowerCase())) {
+          results[entry.regex] = (results[entry.regex] || 0) + 1;
+        }
+      }
+    }
+    let finalResults = Object.keys(results);
+    finalResults.sort((a, b) => getResultPoints(b) - getResultPoints(a));
+    return finalResults.map(res => {
+      return regexEntries.find(r => r.regex == res)!;
+    });
   }
+
   function scrollToCard() {
     const id = window.location.hash.split("#")[1];
-    const choices = document.querySelectorAll(`[data-id=${id}]`);
+    const choices = document.querySelectorAll(`[data-id='${id}']`);
     choices[0]?.scrollIntoView({ behavior: "smooth" });
   };
   useEffect(() => {
@@ -45,11 +64,8 @@ export default function Home() {
           className="w-full rounded-md border border-gray-300 bg-[#2A2A2A] py-1 my-2 px-3 text-base outline-none"
         />
         <div className="flex flex-col space-y-2">
-          {regexEntries
-            .filter(entry => search ? searchFunction(entry) : true)
-            .map((entry) => <RegexCard entry={entry} key={entry.description} />)}
-          {regexEntries
-            .filter(entry => search ? searchFunction(entry) : true).length === 0
+          {(search ? searchEntries(search, false) : regexEntries).map((entry) => <RegexCard entry={entry} key={entry.description} />)}
+          {(search ? searchEntries(search, false) : regexEntries).length === 0
             &&
             (<div className="card">
               <h2 className="text-2xl font-bold mb-2">No Results Found</h2>
