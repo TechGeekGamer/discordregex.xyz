@@ -36,7 +36,7 @@ export const regexEntries: RegexEntry[] = [
         author_discord_tag: "TreeBen77#9066",
         author_website_url: "https://discord.gg/4CSc9E5uQy",
         description: "Detect third party Discord invite domains",
-        limitations: "",
+        limitations: "There are other third party invite domains that are unkown",
         regex: "(?:https?://)?(?:www\.)?(?:dsc\.gg|invite\.gg+|discord\.link)/[a-z0-9-_]+"
     },
     {
