@@ -51,8 +51,8 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div className="p-5 rounded-xl">
-        <h1 id="title" className="text-4xl text-center mb-5 font-bold">
+      <div className="p-2 rounded-xl">
+        <h1 id="title" className="text-2xl lg:text-4xl text-center mb-5 font-bold">
           Discord AutoMod Regexes
         </h1>
         <input
@@ -68,8 +68,8 @@ export default function Home() {
           {(search ? searchEntries(search, false) : regexEntries).length === 0
             &&
             (<div className="card">
-              <h2 className="text-2xl font-bold mb-2">No Results Found</h2>
-              <h4 className="text-lg mb-2">Few things you can do...</h4>
+              <h2 className="text-xl lg:text-2xl font-bold mb-2">No Results Found</h2>
+              <h4 className="text-md lg:text-lg mb-2">Few things you can do...</h4>
               <p className="whitespace-pre-wrap">
                 - Generate your own Regex with TreeBen77#9066&apos;s <a className="link" href="https://treeben77.github.io/automod-regex-generator/" target="_blank" rel="noreferrer">AutoMod Regex Generator</a> (and <a className="link" href="https://github.com/TechGeekGamer/discordregex.xyz" target="_blank" rel="noreferrer">PR it on GitHub</a> after? 👀)
                 <br />
