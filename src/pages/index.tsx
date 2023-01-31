@@ -47,7 +47,7 @@ export default function Home() {
         <title>Discord AutoMod Regexes</title>
         <meta
           name="description"
-          content="A list of regexes that can be used with Discord AutoMod"
+          content="A collection of regexes that can be used with Discord's AutoMod filters. This is not affiliated with Discord."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
