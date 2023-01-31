@@ -30,56 +30,59 @@ export default function RegexCard({ entry }: { entry: RegexEntry }) {
     setSensitiveVisible(true);
   }
   return (
-    <div className="card overflow-x-scroll" id="regex-card" data-id={id}>
-      <h2 className="text-2xl font-bold mb-2 hover:underline hover:cursor-pointer" onClick={() => copyURL()}>{entry.description}</h2>
-      {entry.author_website_url ? <a className="text-lg mb-2 link" href={entry.author_website_url} target="_blank" rel="noreferrer">By: {entry.author_discord_tag}</a> : <h4 className="text-lg mb-2">By: {entry.author_discord_tag}</h4>}
+    <div className="card" id="regex-card" data-id={id}>
+      <h2 className="text-xl lg:text-2xl font-bold mb-2 hover:underline hover:cursor-pointer" onClick={() => copyURL()}>{entry.description}</h2>
+      {entry.author_website_url ? <a className="text-md lg:text-lg mb-2 link" href={entry.author_website_url} target="_blank" rel="noreferrer">By: {entry.author_discord_tag}</a> : <h4 className="text-md lg:text-lg mb-2">By: {entry.author_discord_tag}</h4>}
       <p className="whitespace-pre-wrap">
         {entry.long_description}
       </p>
       <div className="border-b-2 border-gray-500 my-1 rounded-xl" />
-      <table className="table-fixed w-full text-center">
-        <thead>
-          <tr>
-            <th>Regex Limitations ⚠️</th>
-            <th
-              className={`${entry.sensitive_regex && !sensitiveVisible ? "cursor-default" : "cursor-pointer"} transition-all ${selected ? "text-green-500" : ""}`}
-              onClick={() => copyRegex()}
-            >
-              Regex 📋 (Click to Copy)
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              {entry.limitations || (
-                <>
-                  None specified. Found one?{" "}
-                  <a className="link" href="https://github.com/TechGeekGamer/discordregex.xyz" target="_blank" rel="noreferrer">
-                    Please open a PR to add it!
-                  </a>
-                </>
-              )}
-            </td>
-            {entry.sensitive_regex && !sensitiveVisible ? (
-              <td
-                className={`cursor-pointer transition-all text-red-300 hover:text-red-400`}
-                onClick={() => displaySensitiveRegex()}
-              >
-                This regex may be sensitive content to some. Click to view
-                anyways.
-              </td>
-            ) : (
-              <td
-                className={`cursor-pointer transition-all ${selected ? "text-green-500" : ""}`}
+      <div className="overflow-x-scroll">
+        <table className="table-fixed w-full text-center">
+          <thead>
+            <tr>
+              <th>Regex Limitations ⚠️</th>
+              <th
+                className={`${entry.sensitive_regex && !sensitiveVisible ? "cursor-default" : "cursor-pointer"} transition-all ${selected ? "text-green-500" : ""}`}
                 onClick={() => copyRegex()}
               >
-                {selected ? "Copied to Clipboard!" : entry.regex}
+                Regex 📋<br />
+                (Click to Copy)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                {entry.limitations || (
+                  <>
+                    None specified. Found one?{" "}
+                    <a className="link" href="https://github.com/TechGeekGamer/discordregex.xyz" target="_blank" rel="noreferrer">
+                      Please open a PR to add it!
+                    </a>
+                  </>
+                )}
               </td>
-            )}
-          </tr>
-        </tbody>
-      </table>
+              {entry.sensitive_regex && !sensitiveVisible ? (
+                <td
+                  className={`cursor-pointer transition-all text-red-300 hover:text-red-400`}
+                  onClick={() => displaySensitiveRegex()}
+                >
+                  This regex may be sensitive content to some. Click to view
+                  anyways.
+                </td>
+              ) : (
+                <td
+                  className={`cursor-pointer transition-all ${selected ? "text-green-500" : ""}`}
+                  onClick={() => copyRegex()}
+                >
+                  {selected ? "Copied to Clipboard!" : entry.regex}
+                </td>
+              )}
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div >
   );
 }
