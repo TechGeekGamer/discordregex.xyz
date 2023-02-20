@@ -16,7 +16,7 @@ export const regexEntries: RegexEntry[] = [
         author_website_url: "https://discord.gg/4CSc9E5uQy",
         description: "Detect 99% of links, including non-clickable links",
         limitations: "Only works with URLs with English characters",
-        regex: "[a-z0-9\.]{2,}\.[a-z0-9]{2,18}"
+        regex: "(?:https?://)?[a-z0-9_\-\.]{2,}\.[a-z]{2,}"
     },
     {
         author_discord_tag: "TreeBen77#9066",
