@@ -67,13 +67,5 @@ export const regexEntries: RegexEntry[] = [
         long_description: `3 = less false positives, more false negatives (detects some emojis)\n1 - more false postives, less false negatives (detects more emojis, accents and)`,
         limitations: "Some emojis may be blocked",
         regex: "\\p{M}{3,}"
-    },
-    {
-        author_discord_tag: "TreeBen77#9066",
-        author_website_url: "https://discord.gg/4CSc9E5uQy",
-        description: "Detect newline spam",
-        long_description: "6 = max_allowed_newlines + 1",
-        limitations: "",
-        regex: "(\\n.*){6,}"
     }
 ]
