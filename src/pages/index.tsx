@@ -87,7 +87,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
           >
-            Daniel💻#7205
+            1danielc {/* Discord ID: 461560462991949863 */}
           </a>
           <br />
           <a
