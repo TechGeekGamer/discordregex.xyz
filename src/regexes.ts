@@ -75,5 +75,13 @@ export const regexEntries: RegexEntry[] = [
         long_description: "6 = max_allowed_newlines + 1",
         limitations: "",
         regex: "(\\n.*){6,}"
+    },
+    {
+        author_discord_tag: "berriz44", // Discord ID: 706822380978307113
+        author_website_url: "https://discord.gg/kYDfdW898y",
+        description: "Detect empty characters",
+        long_description: "Remove the first {0,0} to enable empty codeblock removal and the second {0,0} to enable empty spoiler removal",
+        limitations: "Some characters may not be detected",
+        regex: "^(?:(?:\\p{C})|(?:\\* \\*)|(?:\\* \\*)|(?:_ _)|(?:``?`?.* ``?`?){0,0}|(?:\\|\\| \\|\\|){0,0}|(?:\\x{3164}))?$"
     }
 ]
